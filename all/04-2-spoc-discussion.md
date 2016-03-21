@@ -35,6 +35,32 @@
 
 (2)（spoc）根据你的`学号 mod 4`的结果值，确定选择四种替换算法（0：LRU置换算法，1:改进的clock 页置换算法，2：工作集页置换算法，3：缺页率置换算法）中的一种来设计一个应用程序（可基于python, ruby, C, C++，LISP等）模拟实现，并给出测试。请参考如python代码或独自实现。
  - [页置换算法实现的参考实例](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab3/page-replacement-policy.py)
+
+工作集置换：
+
+	if __name__ == '__main__':
+	    address = raw_input()
+	    addrList = address.strip('\r\n').split(',')
+	    window = 4
+	    time = 0
+	    workSet = {}
+	    for item in addrList:
+	        n = int(item)
+	        time += 1
+	        print "Access %d at time %d:" % (n, time)
+	        if n in workSet:
+	            print "hit"
+	            workSet[n] = time
+	            for item in workSet.items():
+	                if time - item[1] >= window:
+	                    workSet.pop(item[0])
+	        else:
+	            print "miss"
+	            workSet[n] = time
+	        print "WorkSet Now:"
+	        for item in workSet.items():
+	            print item[0]
+
  
 ## 扩展思考题
 （1）了解LIRS页置换算法的设计思路，尝试用高级语言实现其基本思路。此算法是江松博士（导师：张晓东博士）设计完成的，非常不错！
