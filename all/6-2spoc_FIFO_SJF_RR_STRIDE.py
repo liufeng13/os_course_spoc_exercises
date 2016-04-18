@@ -165,12 +165,8 @@ if options.solve == True:
             ranfor = 0
             
             if runtime > quantum:
-				#YOUR CODE
                 ranfor = quantum
-                
                 runtime -= quantum
-                
-                
                 print '  [ time %3d ] Run job %3d for %.2f secs' % (thetime, jobnum, ranfor)
                 runlist.append([jobnum, runtime])
             else:
@@ -214,11 +210,6 @@ if options.solve == True:
 
         thetime  = 0.0
         while jobcount > 0:
-            # print '%d jobs remaining' % jobcount
-            #print '--------------'
-            #for i in runlist:
-            #    print i
-            #print '--------------'
             mm=10000
             for i in range(0,len(runlist)):
                 #print i,runlist[i][4]
